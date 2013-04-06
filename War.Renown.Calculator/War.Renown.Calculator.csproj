@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Model\IHaveValue.ts" />
-    <Content Include="Common\Common.ts" />
     <Content Include="Model\IHaveValue.js">
       <DependentUpon>IHaveValue.ts</DependentUpon>
     </Content>

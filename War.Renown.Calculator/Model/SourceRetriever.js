@@ -1,3 +1,5 @@
+/// <reference path="..\Common\IHandleGetJson.ts" />
+/// <reference path="..\Api\jquery.d.ts" />
 var Common = Wrc.Common;
 var Wrc;
 (function (Wrc) {

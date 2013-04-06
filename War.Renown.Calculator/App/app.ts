@@ -11,6 +11,9 @@ require
       , '../Model/Level.js'
       , '../Model/Trait.js'
       , '../Model/ValueLevel.js'
+      , '../Model/SourceRetriever.js'
+      , '../Common/IHandleGetJson.js'
+      , '../Common/SimpleJsonRetrieve.js'
     ],
     () =>
     {

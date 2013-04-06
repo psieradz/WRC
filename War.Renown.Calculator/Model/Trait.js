@@ -1,6 +1,5 @@
 var Wrc;
 (function (Wrc) {
-    /// <reference path="Category.ts" />
     (function (Model) {
         var Trait = (function () {
             function Trait() { }

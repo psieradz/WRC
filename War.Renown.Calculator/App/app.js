@@ -1,5 +1,3 @@
-/// <reference path="../Api/require.d.ts" />
-/// <reference path="../Model/ValueLevel.ts" />
 require([
     '../Lib/jquery-1.9.1.js', 
     '../Model/Category.js', 
@@ -7,7 +5,10 @@ require([
     '../Model/ILevel.js', 
     '../Model/Level.js', 
     '../Model/Trait.js', 
-    '../Model/ValueLevel.js'
+    '../Model/ValueLevel.js', 
+    '../Model/SourceRetriever.js', 
+    '../Common/IHandleGetJson.js', 
+    '../Common/SimpleJsonRetrieve.js'
 ], function () {
     var vl = new Wrc.Model.ValueLevel();
     vl.Cost = 5;

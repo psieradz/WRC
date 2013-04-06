@@ -1,7 +1,5 @@
 var Wrc;
 (function (Wrc) {
-    /// <reference path="ILevel.ts" />
-    /// <reference path="IHaveValue.ts" />
     (function (Model) {
         var ValueLevel = (function () {
             function ValueLevel() { }
