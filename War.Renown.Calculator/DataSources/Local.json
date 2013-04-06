@@ -1,0 +1,26 @@
+﻿{
+    "Categories" :
+    [ 
+        {
+            "Name":"Attributes",
+            "Traits" : 
+            [
+                {
+                    "Name": "Strength",
+                    "Levels" :
+                    [
+                        { "Cost": "1" },                        
+                        { "Cost": "3" },
+                        { "Cost": "6" },
+                        { "Cost": "10" },
+                        { "Cost": "14" }
+                    ]
+                }
+            ]
+        },
+        { "Name":"Offensive Crits" },  
+        { "Name":"Defensive Crits" },  
+        { "Name":"Effects" },
+        { "Name":"Abilities" }
+    ]
+}
