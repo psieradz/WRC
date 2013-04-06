@@ -2,8 +2,7 @@ module Wrc.Common
 {
     export interface IHandleGetJson
     {
-        Save(data: any);
-        Retrieve(): any;
-        RetrieveAsString(): string;
+        Data: any;
+        Store(data: any);
     }
 }

@@ -6,13 +6,14 @@ require([
     '../Model/Level.js', 
     '../Model/Trait.js', 
     '../Model/ValueLevel.js', 
-    '../Model/SourceRetriever.js', 
+    '../Model/Repository.js', 
     '../Common/IHandleGetJson.js', 
-    '../Common/SimpleJsonRetrieve.js'
+    '../Common/SimpleJsonRetriever.js', 
+    '../Common/Exceptions/Exception.ts', 
+    '../Common/Exceptions/JsonRetrievalException.ts'
 ], function () {
-    var vl = new Wrc.Model.ValueLevel();
-    vl.Cost = 5;
+    var repository = new Wrc.Model.Repository('../DataSources/Local.json', new Wrc.Common.SimpleJsonRetriever());
     var el = document.getElementById('content');
-    el.innerText = vl.Cost.toString();
+    el.innerText = repository.Get();
 });
 //@ sourceMappingURL=app.js.map

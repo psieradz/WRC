@@ -22,10 +22,27 @@
       <DependentUpon>app.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Common\IHandleGetJson.ts" />
+    <TypeScriptCompile Include="Common\Exceptions\JsonRetrievalException.ts" />
+    <TypeScriptCompile Include="Common\Exceptions\Exception.ts" />
+    <Content Include="Common\Exceptions\Exception.js">
+      <DependentUpon>Exception.ts</DependentUpon>
+    </Content>
+    <Content Include="Common\Exceptions\Exception.min.js">
+      <DependentUpon>Exception.ts</DependentUpon>
+    </Content>
+    <Content Include="Common\Exceptions\JsonRetrievalException.js">
+      <DependentUpon>JsonRetrievalException.ts</DependentUpon>
+    </Content>
+    <Content Include="Common\Exceptions\JsonRetrievalException.min.js">
+      <DependentUpon>JsonRetrievalException.ts</DependentUpon>
+    </Content>
     <Content Include="Common\IHandleGetJson.js">
       <DependentUpon>IHandleGetJson.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Common\SimpleJsonRetriever.ts" />
+    <Content Include="Common\IHandleGetJson.min.js">
+      <DependentUpon>IHandleGetJson.ts</DependentUpon>
+    </Content>
     <Content Include="Common\SimpleJsonRetriever.js">
       <DependentUpon>SimpleJsonRetriever.ts</DependentUpon>
     </Content>
@@ -36,7 +53,7 @@
     <Content Include="Lib\jquery-1.9.1.js" />
     <Content Include="Lib\jquery.mobile-1.3.0.min.js" />
     <Content Include="Api\require.d.ts" />
-    <Content Include="app.css" />
+    <Content Include="App\app.css" />
     <Content Include="default.htm" />
     <Content Include="App\app.js">
       <DependentUpon>app.ts</DependentUpon>
@@ -52,10 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Model\IHaveValue.ts" />
+    <Content Include="Model\Category.min.js">
+      <DependentUpon>Category.ts</DependentUpon>
+    </Content>
     <Content Include="Model\IHaveValue.js">
       <DependentUpon>IHaveValue.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Model\ILevel.ts" />
+    <Content Include="Model\IHaveValue.min.js">
+      <DependentUpon>IHaveValue.ts</DependentUpon>
+    </Content>
     <Content Include="Model\ILevel.js">
       <DependentUpon>ILevel.ts</DependentUpon>
     </Content>
@@ -71,12 +94,12 @@
     <Content Include="Model\Model.min.js">
       <DependentUpon>Trait.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="Model\SourceRetriever.ts" />
-    <Content Include="Model\SourceRetriever.js">
-      <DependentUpon>SourceRetriever.ts</DependentUpon>
+    <TypeScriptCompile Include="Model\Repository.ts" />
+    <Content Include="Model\Repository.js">
+      <DependentUpon>Repository.ts</DependentUpon>
     </Content>
-    <Content Include="Model\SourceRetriever.min.js">
-      <DependentUpon>SourceRetriever.ts</DependentUpon>
+    <Content Include="Model\Repository.min.js">
+      <DependentUpon>Repository.ts</DependentUpon>
     </Content>
     <Content Include="Model\Trait.js">
       <DependentUpon>Trait.ts</DependentUpon>
@@ -120,8 +143,23 @@
     <Content Include="Common\SimpleJsonRetriever.js.map">
       <DependentUpon>SimpleJsonRetriever.ts</DependentUpon>
     </Content>
-    <Content Include="Model\SourceRetriever.js.map">
-      <DependentUpon>SourceRetriever.ts</DependentUpon>
+    <Content Include="Common\Exceptions\Exception.js.map">
+      <DependentUpon>Exception.ts</DependentUpon>
+    </Content>
+    <Content Include="Common\IHandleGetJson.js.map">
+      <DependentUpon>IHandleGetJson.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\IHaveValue.js.map">
+      <DependentUpon>IHaveValue.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\Category.js.map">
+      <DependentUpon>Category.ts</DependentUpon>
+    </Content>
+    <Content Include="Common\Exceptions\JsonRetrievalException.js.map">
+      <DependentUpon>JsonRetrievalException.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\Repository.js.map">
+      <DependentUpon>Repository.ts</DependentUpon>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

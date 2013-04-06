@@ -1,19 +1,15 @@
 var Wrc;
 (function (Wrc) {
-    /// <reference path="IHandleGetJson.ts" />
     (function (Common) {
         var SimpleJsonRetriever = (function () {
             function SimpleJsonRetriever() {
                 this._randomNumber = 4007005;
+                this.Data = null;
             }
-            SimpleJsonRetriever.prototype.Save = function (data) {
+            SimpleJsonRetriever.prototype.Store = function (data) {
+                var self = this;
                 window.localStorage.setItem(this._randomNumber.toString(), JSON.stringify(data));
-            };
-            SimpleJsonRetriever.prototype.Retrieve = function () {
-                return window.localStorage.getItem(this._randomNumber.toString());
-            };
-            SimpleJsonRetriever.prototype.RetrieveAsString = function () {
-                return JSON.stringify(this.Retrieve());
+                self.Data = localStorage.getItem(this._randomNumber.toString());
             };
             return SimpleJsonRetriever;
         })();
