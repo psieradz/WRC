@@ -77,18 +77,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Model\IHaveValue.ts" />
     <Content Include="Lib\linq.js" />
     <TypeScriptCompile Include="Model\Category.ts" />
-    <TypeScriptCompile Include="Model\Collections\CategoryCollections.ts" />
+    <TypeScriptCompile Include="Model\Collections\CategoryCollection.ts" />
     <Content Include="Model\Category.min.js">
       <DependentUpon>Category.ts</DependentUpon>
     </Content>
-    <Content Include="Model\Collections\CategoryCollections.js">
-      <DependentUpon>CategoryCollections.ts</DependentUpon>
+    <Content Include="Model\Collections\CategoryCollection.js">
+      <DependentUpon>CategoryCollection.ts</DependentUpon>
     </Content>
-    <Content Include="Model\Collections\CategoryCollections.min.js">
-      <DependentUpon>CategoryCollections.ts</DependentUpon>
+    <Content Include="Model\Collections\CategoryCollection.min.js">
+      <DependentUpon>CategoryCollection.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Model\Collections\TraitCollection.ts" />
     <TypeScriptCompile Include="Model\Collections\ILevelCollection.ts" />
@@ -104,13 +103,14 @@
     <Content Include="Model\Collections\TraitCollection.min.js">
       <DependentUpon>TraitCollection.ts</DependentUpon>
     </Content>
-    <Content Include="Model\IHaveValue.js">
-      <DependentUpon>IHaveValue.ts</DependentUpon>
+    <TypeScriptCompile Include="Model\Context.ts" />
+    <Content Include="Model\Context.js">
+      <DependentUpon>Context.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\Context.min.js">
+      <DependentUpon>Context.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Model\ILevel.ts" />
-    <Content Include="Model\IHaveValue.min.js">
-      <DependentUpon>IHaveValue.ts</DependentUpon>
-    </Content>
     <Content Include="Model\ILevel.js">
       <DependentUpon>ILevel.ts</DependentUpon>
     </Content>
@@ -180,9 +180,6 @@
     <Content Include="Common\IHandleGetJson.js.map">
       <DependentUpon>IHandleGetJson.ts</DependentUpon>
     </Content>
-    <Content Include="Model\IHaveValue.js.map">
-      <DependentUpon>IHaveValue.ts</DependentUpon>
-    </Content>
     <Content Include="Common\Exceptions\JsonRetrievalException.js.map">
       <DependentUpon>JsonRetrievalException.ts</DependentUpon>
     </Content>
@@ -192,9 +189,6 @@
     <Content Include="Common\CollectionBase.js.map">
       <DependentUpon>CollectionBase.ts</DependentUpon>
     </Content>
-    <Content Include="Model\Collections\CategoryCollections.js.map">
-      <DependentUpon>CategoryCollections.ts</DependentUpon>
-    </Content>
     <Content Include="Model\Collections\TraitCollection.js.map">
       <DependentUpon>TraitCollection.ts</DependentUpon>
     </Content>
@@ -203,6 +197,12 @@
     </Content>
     <Content Include="Model\Category.js.map">
       <DependentUpon>Category.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\Context.js.map">
+      <DependentUpon>Context.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\Collections\CategoryCollection.js.map">
+      <DependentUpon>CategoryCollection.ts</DependentUpon>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

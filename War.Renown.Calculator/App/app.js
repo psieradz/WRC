@@ -2,6 +2,10 @@ require([
     '../Lib/jquery-1.9.1.js', 
     '../Lib/linq.js', 
     '../Lib/linq.jquery.js', 
+    '../Common/CollectionBase.js', 
+    '../Model/Collections/CategoryCollection.js', 
+    '../Model/Collections/TraitCollection.js', 
+    '../Model/Collections/ILevelCollection.js', 
     '../Model/Category.js', 
     '../Model/IHaveValue.js', 
     '../Model/ILevel.js', 
@@ -9,10 +13,6 @@ require([
     '../Model/Trait.js', 
     '../Model/ValueLevel.js', 
     '../Model/Repository.js', 
-    '../Common/CollectionBase.js', 
-    '../Model/Collections/CategoryCollection.js', 
-    '../Model/Collections/TraitCollection.js', 
-    '../Model/Collections/ILevelCollection.js', 
     '../Common/IHandleGetJson.js', 
     '../Common/SimpleJsonRetriever.js', 
     '../Common/Exceptions/Exception.ts', 
@@ -20,6 +20,6 @@ require([
 ], function () {
     var repository = new Wrc.Model.Repository('../DataSources/Local.json', new Wrc.Common.SimpleJsonRetriever());
     var el = document.getElementById('content');
-    el.innerText = repository.Get();
+    repository.GetCategories();
 });
 //@ sourceMappingURL=app.js.map

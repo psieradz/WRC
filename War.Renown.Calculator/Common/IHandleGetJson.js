@@ -1,4 +1,7 @@
 var Wrc;
 (function (Wrc) {
-    })(Wrc || (Wrc = {}));
+    (function (Common) {
+    })(Wrc.Common || (Wrc.Common = {}));
+    var Common = Wrc.Common;
+})(Wrc || (Wrc = {}));
 //@ sourceMappingURL=IHandleGetJson.js.map

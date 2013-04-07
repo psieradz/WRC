@@ -2,9 +2,7 @@ var Wrc;
 (function (Wrc) {
     (function (Model) {
         var ValueLevel = (function () {
-            function ValueLevel(description) {
-                this.Description = description;
-            }
+            function ValueLevel() { }
             return ValueLevel;
         })();
         Model.ValueLevel = ValueLevel;        

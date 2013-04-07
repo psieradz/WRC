@@ -14,6 +14,9 @@ var Wrc;
             CollectionBase.prototype.Add = function (item) {
                 this._items.push(item);
             };
+            CollectionBase.prototype.ElementAt = function (index) {
+                return this._items[index];
+            };
             CollectionBase.prototype.IndexOf = function (obj, fromIndex) {
                 if(fromIndex == null) {
                     fromIndex = 0;

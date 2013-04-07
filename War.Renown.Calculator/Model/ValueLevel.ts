@@ -1,18 +1,13 @@
 /// <reference path="ILevel.ts" />
-/// <reference path="IHaveValue.ts" />
+
 module Wrc.Model
 {
-    export class ValueLevel implements ILevel, IHaveValue
+    export class ValueLevel implements ILevel
     {
         Description: string;
         Cost: number;
         Selected: bool;
-        BelongsTo: Trait;
+        Trait: Trait;
         Value: number;
-
-        constructor(description : string)
-        {
-            this.Description = description;
-        }
     }
 }

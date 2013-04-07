@@ -1,4 +1,5 @@
 var Common = Wrc.Common;
+var Collections = Wrc.Model.Collections;
 var Wrc;
 (function (Wrc) {
     (function (Model) {
@@ -8,14 +9,20 @@ var Wrc;
                 this._sourcePath = sourcePath;
                 this._handler = handler;
             }
-            Repository.prototype.Get = function () {
-                $.ajaxSetup({
-                    async: false,
-                    cache: false
-                });
+            Repository.prototype.GetRawData = function () {
+                var self = this;
                 if(this._handler.Data == null) {
                     try  {
-                        this.Read();
+                        $.ajaxSetup({
+                            async: false,
+                            cache: false
+                        });
+                        $.getJSON(self._sourcePath).fail(function (response) {
+                            throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
+                        }).done(function (data) {
+                            return self._handler.Store(data);
+                        });
+                        this._rawData = JSON.parse(this._handler.Data);
                     }finally {
                         $.ajaxSetup({
                             async: true,
@@ -23,17 +30,12 @@ var Wrc;
                         });
                     }
                 }
-                var query = Enumerable.From(JSON.parse(this._handler.Data)).Select(function (root) {
-                    return root.Categories;
-                }).ToArray();
             };
-            Repository.prototype.Read = function () {
-                var self = this;
-                $.getJSON(self._sourcePath).fail(function (response) {
-                    throw new Error(response.status + ' ' + response.statusText);
-                }).done(function (data) {
-                    return self._handler.Store(data);
-                });
+            Repository.prototype.GetCategories = function () {
+                return;
+                Enumerable.From(this._rawData).Select(function (root) {
+                    return root.Categories.Name;
+                }).ToArray();
             };
             return Repository;
         })();

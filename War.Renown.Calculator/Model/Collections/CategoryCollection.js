@@ -27,4 +27,4 @@ var Wrc;
     })(Wrc.Model || (Wrc.Model = {}));
     var Model = Wrc.Model;
 })(Wrc || (Wrc = {}));
-//@ sourceMappingURL=CategoryCollections.js.map
+//@ sourceMappingURL=CategoryCollection.js.map

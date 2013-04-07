@@ -9,7 +9,7 @@ module Wrc.Model.Collections
         {
             super.Add(item);
         }
-
+        
         public IndexOf(item: Category)
         {
             return super.IndexOf(item);

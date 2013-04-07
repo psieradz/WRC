@@ -19,6 +19,11 @@ module Wrc.Common
             this._items.push(item);
         }
 
+        public ElementAt(index: number): Object
+        {
+            return this._items[index];
+        }
+
         public IndexOf(obj, fromIndex?: number)
         {
             if (fromIndex == null) {

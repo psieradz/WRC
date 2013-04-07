@@ -6,6 +6,6 @@ module Wrc.Model
         Description: string;
         Cost: number;
         Selected: bool;
-        BelongsTo: Trait;
+        Trait: Trait;
     }
 }

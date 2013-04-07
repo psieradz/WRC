@@ -1,47 +1,54 @@
 ﻿[ 
+	"Categories":
     {
-		"Category" : 
-		{
-			"Name":"Attributes",
-			"Traits" : 
-			[
-				{
-					"Name": "Strength",
-					"Levels" :
-					[
-						{ "Cost": "1" },                        
-						{ "Cost": "3" },
-						{ "Cost": "6" },
-						{ "Cost": "10" },
-						{ "Cost": "14" }
-					]
-				}
-			]
-		}
+		"Type" : "Category", 
+		"Name" : "Attributes",
+		"Traits" :
+		[
+			{
+				"Type" : "Trait",
+				"Name":"Strength",
+				"Levels":
+				[
+					{ 
+						"Type":"Level",
+						"Cost": "1" 
+					},                        
+					{ 					
+						"Type":"Level",
+						"Cost": "3" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "6" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "10" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "14" 
+					}
+				]
+			}
+		]
 	},
 	{
-		"Category" : 
-		{ 
-			"Name":"Offensive Crits" 
-		}  
+		"Type" : "Category",  
+		"Name":"Offensive Crits" 
 	},
 	{
-		"Category" : 
-		{ 
-			"Name":"Defensive Crits" 
-		}
+		"Type" : "Category",  
+		"Name":"Defensive Crits" 
 	},  
 	{
-		"Category" : 
-		{ 
-			"Name":"Effects" 
-		}
+		"Type" : "Category",  
+		"Name":"Effects" 
 	},
 	{
-		"Category" : 
-		{ 
-			"Name":"Abilities" 
-		}
+		"Type" : "Category",  
+		"Name":"Abilities" 
 	}
 ]
 
