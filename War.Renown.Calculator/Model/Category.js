@@ -2,7 +2,9 @@ var Wrc;
 (function (Wrc) {
     (function (Model) {
         var Category = (function () {
-            function Category() { }
+            function Category(name) {
+                this.Name = name;
+            }
             return Category;
         })();
         Model.Category = Category;        

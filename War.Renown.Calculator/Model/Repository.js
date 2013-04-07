@@ -1,41 +1,54 @@
-var Common = Wrc.Common;
+/// <reference path="..\Api\jquery.d.ts" />
+/// <reference path="..\Api\linq.d.ts" />
+/// <reference path="..\Common\Exceptions\Exception.ts" />
+/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Model\ValueLevel.ts" />
+/// <reference path="..\Model\Category.ts" />
+/// <reference path="..\Model\Collections\CategoryCollection.ts" />
 var Collections = Wrc.Model.Collections;
 var Wrc;
 (function (Wrc) {
     (function (Model) {
         var Repository = (function () {
-            function Repository(sourcePath, handler) {
-                this.sourcePath = sourcePath;
-                this._sourcePath = sourcePath;
-                this._handler = handler;
+            function Repository(connectionString) {
+                this.Initialize(connectionString);
             }
-            Repository.prototype.GetRawData = function () {
-                var self = this;
-                if(this._handler.Data == null) {
-                    try  {
-                        $.ajaxSetup({
-                            async: false,
-                            cache: false
-                        });
-                        $.getJSON(self._sourcePath).fail(function (response) {
-                            throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
-                        }).done(function (data) {
-                            return self._handler.Store(data);
-                        });
-                        this._rawData = JSON.parse(this._handler.Data);
-                    }finally {
-                        $.ajaxSetup({
-                            async: true,
-                            cache: true
-                        });
-                    }
-                }
+            Repository.prototype.Initialize = function (connectionString) {
+                this._connectionString = connectionString;
+                this._categories = new Array();
+                this._traits = new Array();
+                this._levels = new Array();
             };
-            Repository.prototype.GetCategories = function () {
-                return;
-                Enumerable.From(this._rawData).Select(function (root) {
-                    return root.Categories.Name;
-                }).ToArray();
+            Repository.prototype.Fill = function () {
+                var self = this;
+                try  {
+                    $.ajaxSetup({
+                        async: false,
+                        cache: false
+                    });
+                    $.getJSON(self._connectionString).fail(function (response) {
+                        //throw new Error(response.status + ' ' + response.statusText)
+                        throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
+                    }).done(function (data) {
+                        Enumerable.From(data).ForEach(function (category) {
+                            var categoryToAdd = new Model.Category(category.Name);
+                            self._categories.push(categoryToAdd);
+                            Enumerable.From(category.Traits).ForEach(function (trait) {
+                                var traitToAdd = new Model.Trait(categoryToAdd, trait.Name);
+                                self._traits.push(traitToAdd);
+                                Enumerable.From(trait.Levels).ForEach(function (level) {
+                                    self._levels.push(new Model.ValueLevel(level.Description, level.Cost, traitToAdd, level.Value));
+                                });
+                            });
+                        });
+                    });
+                }finally {
+                    $.ajaxSetup({
+                        async: true,
+                        cache: true
+                    });
+                }
             };
             return Repository;
         })();

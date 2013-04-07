@@ -6,6 +6,7 @@ var __extends = this.__extends || function (d, b) {
 var Wrc;
 (function (Wrc) {
     (function (Common) {
+        /// <reference path="Exception.ts" />
         (function (Exceptions) {
             var JsonRetrievalException = (function (_super) {
                 __extends(JsonRetrievalException, _super);

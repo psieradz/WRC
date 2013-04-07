@@ -1,62 +1,78 @@
 /// <reference path="..\Api\jquery.d.ts" />
 /// <reference path="..\Api\linq.d.ts" />
-/// <reference path="..\Common\IHandleGetJson.ts" />
 /// <reference path="..\Common\Exceptions\Exception.ts" />
 /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
 /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
 /// <reference path="..\Model\ValueLevel.ts" />
+/// <reference path="..\Model\Category.ts" />
 /// <reference path="..\Model\Collections\CategoryCollection.ts" />
 
-import Common = Wrc.Common;
 import Collections = Wrc.Model.Collections;
 
 module Wrc.Model
 {
     export class Repository
     {
-        private _handler: Common.IHandleGetJson;
-        private _sourcePath: any;
-        private _rawData : any;
+        private _connectionString: any;
+        private _categories: Category[];
+        private _traits: Trait[];
+        private _levels: ILevel[];
 
-        constructor(public sourcePath: string, handler: Common.IHandleGetJson) {
-            this._sourcePath = sourcePath;
-            this._handler = handler;
+        constructor(connectionString: string)
+        {
+            this.Initialize(connectionString);
+        }
+
+        private Initialize(connectionString: string)
+        {
+            this._connectionString = connectionString;
+            this._categories = new Category[];
+            this._traits = new Trait[];
+            this._levels = new ILevel[];
         }
         
-        private GetRawData() : any
+        Fill() 
         {
             var self = this;
-            
-            if (this._handler.Data == null)
-            {
-                try
+
+            try
                 {
                     $.ajaxSetup({ async: false, cache: false })
-                    $.getJSON(self._sourcePath)
+                    $.getJSON(self._connectionString)
                     .fail((response) =>
                     {
                         //throw new Error(response.status + ' ' + response.statusText)
-                        throw new Common.Exceptions.JsonRetrievalException(response.statusText);
+                        throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
                     })
                     .done((data) =>
-                        self._handler.Store(data)
-                    )
+                    {                       
+                        Enumerable
+                            .From(data)
+                            .ForEach(category =>
+                            {
+                                var categoryToAdd = new Category(category.Name);
+                                self._categories.push(categoryToAdd);
+                                Enumerable
+                                    .From(category.Traits)
+                                    .ForEach(trait =>
+                                    {
+                                        var traitToAdd = new Trait(categoryToAdd,trait.Name)
+                                        self._traits.push(traitToAdd);
+                                        Enumerable
+                                        .From(trait.Levels)
+                                        .ForEach(level =>
+                                        {                                            
+                                            self._levels.push(new ValueLevel(level.Description, level.Cost, traitToAdd,level.Value));
+                                        })
+                                    })
+                            })
+                    })
 
-                    this._rawData = JSON.parse(this._handler.Data);
                 }
                 finally
                 {
                     $.ajaxSetup({ async: true, cache: true })
                 }
-            }
         }
-
-        GetCategories(): any //Collections.CategoryCollection
-        {
-            return 
-                Enumerable.From(this._rawData)
-                    .Select(root => root.Categories.Name)
-                    .ToArray();
-        }
-    }
+     }
 }

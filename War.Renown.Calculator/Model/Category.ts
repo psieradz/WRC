@@ -4,6 +4,11 @@ module Wrc.Model
 {
     export class Category
     {
-        Type: String;
+        Name: String;
+
+        constructor(name: string)
+        {
+            this.Name = name;
+        }
     }
 }

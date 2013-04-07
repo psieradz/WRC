@@ -1,8 +1,6 @@
 /// <reference path="../Api/require.d.ts" />
 /// <reference path="../Model/ValueLevel.ts" />
 /// <reference path="../Model/Repository.ts" />
-/// <reference path="../Common/IHandleGetJson.ts" />
-/// <reference path="../Common/SimpleJsonRetriever.ts" />
 
 require
 (
@@ -12,6 +10,7 @@ require
       , '../Lib/linq.js'
       , '../Lib/linq.jquery.js'
       , '../Common/CollectionBase.js'
+      , '../Model/Collections/ILoadFromRepository.js'
       , '../Model/Collections/CategoryCollection.js'
       , '../Model/Collections/TraitCollection.js'
       , '../Model/Collections/ILevelCollection.js'
@@ -22,21 +21,15 @@ require
       , '../Model/Trait.js'
       , '../Model/ValueLevel.js'
       , '../Model/Repository.js'
-      , '../Common/IHandleGetJson.js'
-      , '../Common/SimpleJsonRetriever.js'
       , '../Common/Exceptions/Exception.ts'
       , '../Common/Exceptions/JsonRetrievalException.ts'
     ],
     //#endregion
     () =>
     {
-        var repository = new Wrc.Model.Repository
-                    (
-                        '../DataSources/Local.json',
-                        new Wrc.Common.SimpleJsonRetriever()
-                    );
+        var repository = new Wrc.Model.Repository('../DataSources/Local.json');
         var el = document.getElementById('content');
-        repository.GetCategories();
+        repository.Fill();
         //el.innerText = repository.Get();
     }
 );

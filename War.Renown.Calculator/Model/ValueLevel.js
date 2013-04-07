@@ -1,8 +1,15 @@
 var Wrc;
 (function (Wrc) {
+    /// <reference path="ILevel.ts" />
     (function (Model) {
         var ValueLevel = (function () {
-            function ValueLevel() { }
+            function ValueLevel(description, cost, trait, value) {
+                this.Description = description;
+                this.Cost = cost;
+                this.Trait = trait;
+                this.Value = value;
+                this.Selected = false;
+            }
             return ValueLevel;
         })();
         Model.ValueLevel = ValueLevel;        

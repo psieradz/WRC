@@ -22,16 +22,8 @@
     <Content Include="App\app.min.js">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="Common\IHandleGetJson.ts" />
     <TypeScriptCompile Include="Common\Exceptions\JsonRetrievalException.ts" />
     <TypeScriptCompile Include="Common\Exceptions\Exception.ts" />
-    <TypeScriptCompile Include="Common\CollectionBase.ts" />
-    <Content Include="Common\CollectionBase.js">
-      <DependentUpon>CollectionBase.ts</DependentUpon>
-    </Content>
-    <Content Include="Common\CollectionBase.min.js">
-      <DependentUpon>CollectionBase.ts</DependentUpon>
-    </Content>
     <Content Include="Common\Exceptions\Exception.js">
       <DependentUpon>Exception.ts</DependentUpon>
     </Content>
@@ -43,19 +35,6 @@
     </Content>
     <Content Include="Common\Exceptions\JsonRetrievalException.min.js">
       <DependentUpon>JsonRetrievalException.ts</DependentUpon>
-    </Content>
-    <Content Include="Common\IHandleGetJson.js">
-      <DependentUpon>IHandleGetJson.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="Common\SimpleJsonRetriever.ts" />
-    <Content Include="Common\IHandleGetJson.min.js">
-      <DependentUpon>IHandleGetJson.ts</DependentUpon>
-    </Content>
-    <Content Include="Common\SimpleJsonRetriever.js">
-      <DependentUpon>SimpleJsonRetriever.ts</DependentUpon>
-    </Content>
-    <Content Include="Common\SimpleJsonRetriever.min.js">
-      <DependentUpon>SimpleJsonRetriever.ts</DependentUpon>
     </Content>
     <Content Include="Lib\angular.min.js" />
     <Content Include="Lib\jquery-1.9.1.js" />
@@ -79,36 +58,8 @@
   <ItemGroup>
     <Content Include="Lib\linq.js" />
     <TypeScriptCompile Include="Model\Category.ts" />
-    <TypeScriptCompile Include="Model\Collections\CategoryCollection.ts" />
     <Content Include="Model\Category.min.js">
       <DependentUpon>Category.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\CategoryCollection.js">
-      <DependentUpon>CategoryCollection.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\CategoryCollection.min.js">
-      <DependentUpon>CategoryCollection.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="Model\Collections\TraitCollection.ts" />
-    <TypeScriptCompile Include="Model\Collections\ILevelCollection.ts" />
-    <Content Include="Model\Collections\ILevelCollection.js">
-      <DependentUpon>ILevelCollection.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\ILevelCollection.min.js">
-      <DependentUpon>ILevelCollection.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\TraitCollection.js">
-      <DependentUpon>TraitCollection.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\TraitCollection.min.js">
-      <DependentUpon>TraitCollection.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="Model\Context.ts" />
-    <Content Include="Model\Context.js">
-      <DependentUpon>Context.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Context.min.js">
-      <DependentUpon>Context.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Model\ILevel.ts" />
     <Content Include="Model\ILevel.js">
@@ -171,14 +122,8 @@
     <Content Include="Model\ValueLevel.js.map">
       <DependentUpon>ValueLevel.ts</DependentUpon>
     </Content>
-    <Content Include="Common\SimpleJsonRetriever.js.map">
-      <DependentUpon>SimpleJsonRetriever.ts</DependentUpon>
-    </Content>
     <Content Include="Common\Exceptions\Exception.js.map">
       <DependentUpon>Exception.ts</DependentUpon>
-    </Content>
-    <Content Include="Common\IHandleGetJson.js.map">
-      <DependentUpon>IHandleGetJson.ts</DependentUpon>
     </Content>
     <Content Include="Common\Exceptions\JsonRetrievalException.js.map">
       <DependentUpon>JsonRetrievalException.ts</DependentUpon>
@@ -186,23 +131,8 @@
     <Content Include="Model\Repository.js.map">
       <DependentUpon>Repository.ts</DependentUpon>
     </Content>
-    <Content Include="Common\CollectionBase.js.map">
-      <DependentUpon>CollectionBase.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\TraitCollection.js.map">
-      <DependentUpon>TraitCollection.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\ILevelCollection.js.map">
-      <DependentUpon>ILevelCollection.ts</DependentUpon>
-    </Content>
     <Content Include="Model\Category.js.map">
       <DependentUpon>Category.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Context.js.map">
-      <DependentUpon>Context.ts</DependentUpon>
-    </Content>
-    <Content Include="Model\Collections\CategoryCollection.js.map">
-      <DependentUpon>CategoryCollection.ts</DependentUpon>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
