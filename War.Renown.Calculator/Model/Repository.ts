@@ -53,8 +53,7 @@ module Wrc.Model
                     $.getJSON(self._connectionString)
                     .fail((response) =>
                     {
-                        //throw new Error(response.status + ' ' + response.statusText)
-                        throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
+                        throw new Common.Exceptions.JsonRetrievalException(response.statusText);
                     })
                     .done((data) =>
                     {                       

@@ -47,7 +47,6 @@ var Wrc;
                         cache: false
                     });
                     $.getJSON(self._connectionString).fail(function (response) {
-                        //throw new Error(response.status + ' ' + response.statusText)
                         throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
                     }).done(function (data) {
                         Enumerable.From(data).ForEach(function (category) {
