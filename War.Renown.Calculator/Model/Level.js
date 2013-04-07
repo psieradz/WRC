@@ -1,5 +1,7 @@
 var Wrc;
 (function (Wrc) {
+    /// <reference path="Trait.ts" />
+    /// <reference path="Ilevel.ts" />
     (function (Model) {
         var Level = (function () {
             function Level() { }

@@ -9,5 +9,10 @@ module Wrc.Model
         Selected: bool;
         BelongsTo: Trait;
         Value: number;
+
+        constructor(description : string)
+        {
+            this.Description = description;
+        }
     }
 }

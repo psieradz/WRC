@@ -1,9 +1,10 @@
-/// <reference path="Category.ts" />
+/// <reference path="../Model/Collections/ILevelCollection.ts" />
+
 module Wrc.Model
 {
     export class Trait
     {
-        Category: Category;
         Name: string;
+        Levels: Model.Collections.ILevelCollection;
     }
 }

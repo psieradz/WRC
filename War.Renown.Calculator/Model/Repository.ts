@@ -1,7 +1,10 @@
-/// <reference path="..\Common\IHandleGetJson.ts" />
 /// <reference path="..\Api\jquery.d.ts" />
+/// <reference path="..\Api\linq.d.ts" />
+/// <reference path="..\Common\IHandleGetJson.ts" />
 /// <reference path="..\Common\Exceptions\Exception.ts" />
 /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Model\ValueLevel.ts" />
 
 import Common = Wrc.Common;
 
@@ -11,7 +14,6 @@ module Wrc.Model
     {
         private _handler: Common.IHandleGetJson;
         private _sourcePath: any;
-        private _rawData: any;
 
         constructor(public sourcePath: string, handler: Common.IHandleGetJson) {
             this._sourcePath = sourcePath;
@@ -20,7 +22,8 @@ module Wrc.Model
         
         Get() : any
         {
-            $.ajaxSetup({ async:false })
+            $.ajaxSetup({ async: false, cache: false })
+
             if (this._handler.Data == null)
                 try
                 {
@@ -28,16 +31,20 @@ module Wrc.Model
                 }
                 finally
                 {
-                    $.ajaxSetup({ async: true })
+                    $.ajaxSetup({ async: true, cache:true })
                 }
-            this._rawData = JSON.parse(this._handler.Data);
-            return this._rawData;
+                
+                           
+            var query =
+                Enumerable.From(JSON.parse(this._handler.Data))
+                .Select(root => root.Categories)
+                .ToArray();
+                
         }
 
         private Read(): any
         {
             var self = this;
-
             $.getJSON(self._sourcePath)
             .fail((response) =>
             {

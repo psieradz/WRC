@@ -1,9 +1,10 @@
+/// <reference path="../Model/Collections/TraitCollection.ts" />
+
 module Wrc.Model
 {
-    export enum Category {
-        Attribute,
-        OffensiveCrit,
-        DefensiveCrit,
-        Passive
+    export class Category
+    {
+        Type: String;
+        Traits: Wrc.Model.Collections.TraitCollection;
     }
 }

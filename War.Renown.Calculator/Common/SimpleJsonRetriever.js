@@ -1,5 +1,6 @@
 var Wrc;
 (function (Wrc) {
+    /// <reference path="IHandleGetJson.ts" />
     (function (Common) {
         var SimpleJsonRetriever = (function () {
             function SimpleJsonRetriever() {

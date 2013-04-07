@@ -1,3 +1,10 @@
+/// <reference path="..\Api\jquery.d.ts" />
+/// <reference path="..\Api\linq.d.ts" />
+/// <reference path="..\Common\IHandleGetJson.ts" />
+/// <reference path="..\Common\Exceptions\Exception.ts" />
+/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+/// <reference path="..\Model\ValueLevel.ts" />
 var Common = Wrc.Common;
 var Wrc;
 (function (Wrc) {
@@ -10,25 +17,29 @@ var Wrc;
             }
             Repository.prototype.Get = function () {
                 $.ajaxSetup({
-                    async: false
+                    async: false,
+                    cache: false
                 });
                 if(this._handler.Data == null) {
                     try  {
                         this.Read();
                     }finally {
                         $.ajaxSetup({
-                            async: true
+                            async: true,
+                            cache: true
                         });
                     }
                 }
-                this._rawData = JSON.parse(this._handler.Data);
-                return this._rawData;
+                var query = Enumerable.From(JSON.parse(this._handler.Data)).Select(function (root) {
+                    return root.Categories;
+                }).ToArray();
             };
             Repository.prototype.Read = function () {
                 var self = this;
                 $.getJSON(self._sourcePath).fail(function (response) {
                     throw new Error(response.status + ' ' + response.statusText);
-                }).done(function (data) {
+                    //throw new Common.Exceptions.JsonRetrievalException(response.statusText);
+                                    }).done(function (data) {
                     return self._handler.Store(data);
                 });
             };
