@@ -1,10 +1,3 @@
-/// <reference path="..\Api\jquery.d.ts" />
-/// <reference path="..\Api\linq.d.ts" />
-/// <reference path="..\Common\IHandleGetJson.ts" />
-/// <reference path="..\Common\Exceptions\Exception.ts" />
-/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
-/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
-/// <reference path="..\Model\ValueLevel.ts" />
 var Common = Wrc.Common;
 var Wrc;
 (function (Wrc) {
@@ -38,8 +31,7 @@ var Wrc;
                 var self = this;
                 $.getJSON(self._sourcePath).fail(function (response) {
                     throw new Error(response.status + ' ' + response.statusText);
-                    //throw new Common.Exceptions.JsonRetrievalException(response.statusText);
-                                    }).done(function (data) {
+                }).done(function (data) {
                     return self._handler.Store(data);
                 });
             };

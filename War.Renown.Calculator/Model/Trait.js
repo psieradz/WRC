@@ -1,6 +1,5 @@
 var Wrc;
 (function (Wrc) {
-    /// <reference path="../Model/Collections/ILevelCollection.ts" />
     (function (Model) {
         var Trait = (function () {
             function Trait() { }

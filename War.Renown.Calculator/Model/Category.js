@@ -1,6 +1,5 @@
 var Wrc;
 (function (Wrc) {
-    /// <reference path="../Model/Collections/TraitCollection.ts" />
     (function (Model) {
         var Category = (function () {
             function Category() { }

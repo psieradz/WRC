@@ -1,10 +1,4 @@
-/// <reference path="../Api/require.d.ts" />
-/// <reference path="../Model/ValueLevel.ts" />
-/// <reference path="../Model/Repository.ts" />
-/// <reference path="../Common/IHandleGetJson.ts" />
-/// <reference path="../Common/SimpleJsonRetriever.ts" />
-require(//#region Imports
-[
+require([
     '../Lib/jquery-1.9.1.js', 
     '../Lib/linq.js', 
     '../Lib/linq.jquery.js', 
@@ -23,8 +17,7 @@ require(//#region Imports
     '../Common/SimpleJsonRetriever.js', 
     '../Common/Exceptions/Exception.ts', 
     '../Common/Exceptions/JsonRetrievalException.ts'
-], //#endregion
-function () {
+], function () {
     var repository = new Wrc.Model.Repository('../DataSources/Local.json', new Wrc.Common.SimpleJsonRetriever());
     var el = document.getElementById('content');
     el.innerText = repository.Get();

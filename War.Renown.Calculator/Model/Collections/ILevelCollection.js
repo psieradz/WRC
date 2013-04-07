@@ -6,8 +6,6 @@ var __extends = this.__extends || function (d, b) {
 var Wrc;
 (function (Wrc) {
     (function (Model) {
-        /// <reference path="../ILevel.ts" />
-        /// <reference path="../../Common/CollectionBase.ts" />
         (function (Collections) {
             var ILevelCollection = (function (_super) {
                 __extends(ILevelCollection, _super);
