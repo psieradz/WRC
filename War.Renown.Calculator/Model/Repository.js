@@ -1,19 +1,38 @@
-/// <reference path="..\Api\jquery.d.ts" />
-/// <reference path="..\Api\linq.d.ts" />
-/// <reference path="..\Common\Exceptions\Exception.ts" />
-/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
-/// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
-/// <reference path="..\Model\ValueLevel.ts" />
-/// <reference path="..\Model\Category.ts" />
-/// <reference path="..\Model\Collections\CategoryCollection.ts" />
-var Collections = Wrc.Model.Collections;
 var Wrc;
 (function (Wrc) {
+    /// <reference path="..\Api\jquery.d.ts" />
+    /// <reference path="..\Api\linq.d.ts" />
+    /// <reference path="..\Common\Exceptions\Exception.ts" />
+    /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+    /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
+    /// <reference path="..\Model\ValueLevel.ts" />
+    /// <reference path="..\Model\Category.ts" />
     (function (Model) {
         var Repository = (function () {
             function Repository(connectionString) {
                 this.Initialize(connectionString);
             }
+            Object.defineProperty(Repository.prototype, "Categories", {
+                get: function () {
+                    return this._categories;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Repository.prototype, "Traits", {
+                get: function () {
+                    return this._traits;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Repository.prototype, "Levels", {
+                get: function () {
+                    return this._levels;
+                },
+                enumerable: true,
+                configurable: true
+            });
             Repository.prototype.Initialize = function (connectionString) {
                 this._connectionString = connectionString;
                 this._categories = new Array();

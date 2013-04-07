@@ -4,9 +4,29 @@ module Wrc.Model
 {
     export class Level implements ILevel
     {
-        Description: string;
-        Cost: number;
-        Selected: bool;
-        Trait: Trait;
+        private _description: string;
+        private _cost: number;
+        private _selected: bool;
+        private _trait: Trait;
+
+        get Description(): String
+        {
+            return this._description;
+        }
+
+        get Cost(): number
+        {
+            return this._cost;
+        }
+
+        get Selected(): bool
+        {
+            return this._selected;
+        }
+
+        get Trait(): Trait
+        {
+            return this._trait;
+        }
     }
 }

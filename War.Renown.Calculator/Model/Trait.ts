@@ -1,17 +1,26 @@
-/// <reference path="../Model/Collections/ILevelCollection.ts" />
 /// <reference path="../Model/Category.ts" />
 
 module Wrc.Model
 {
     export class Trait
-    {        
-        Category: Category;
-        Name: string;
+    {
+        private _category: Category;
+        private _name: string;
+
+        get Category(): Category
+        {
+            return this._category;
+        }
+
+        get Name(): string
+        {
+            return this._name;
+        }
 
         constructor(category: Category, name: string)
         {
-            this.Category = category;
-            this.Name = name;
+            this._category= category;
+            this._name = name;
         }
     }
 }

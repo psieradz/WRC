@@ -12,8 +12,25 @@ var Wrc;
                 __extends(JsonRetrievalException, _super);
                 function JsonRetrievalException(message) {
                                 _super.call(this, message);
-                    this.name = "JsonRetrievalException";
+                    this._name = "JsonRetrievalException";
                 }
+                Object.defineProperty(JsonRetrievalException.prototype, "Name", {
+                    get: function () {
+                        return this._name;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                Object.defineProperty(JsonRetrievalException.prototype, "Message", {
+                    get: function () {
+                        return this._message;
+                    },
+                    set: function (value) {
+                        this._message = value;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
                 return JsonRetrievalException;
             })(Exceptions.Exception);
             Exceptions.JsonRetrievalException = JsonRetrievalException;            

@@ -3,8 +3,15 @@ var Wrc;
     (function (Model) {
         var Category = (function () {
             function Category(name) {
-                this.Name = name;
+                this._name = name;
             }
+            Object.defineProperty(Category.prototype, "Name", {
+                get: function () {
+                    return this._name;
+                },
+                enumerable: true,
+                configurable: true
+            });
             return Category;
         })();
         Model.Category = Category;        

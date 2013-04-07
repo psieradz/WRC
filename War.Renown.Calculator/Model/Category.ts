@@ -1,14 +1,17 @@
-/// <reference path="../Model/Collections/TraitCollection.ts" />
-
 module Wrc.Model
 {
     export class Category
     {
-        Name: String;
+        private _name: string;
+
+        get Name(): string
+        {
+            return this._name;
+        }
 
         constructor(name: string)
         {
-            this.Name = name;
+            this._name = name;
         }
     }
 }

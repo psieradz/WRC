@@ -1,6 +1,7 @@
 /// <reference path="../Api/require.d.ts" />
 /// <reference path="../Model/ValueLevel.ts" />
 /// <reference path="../Model/Repository.ts" />
+/// <reference path="../Model/Category.ts" />
 
 require
 (

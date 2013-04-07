@@ -3,9 +3,9 @@ module Wrc.Model
 {
     export interface ILevel
     {
-        Description: string;
-        Cost: number;
-        Selected: bool;
-        Trait: Trait;
+        _description: string;
+        _cost: number;
+        _selected: bool;
+        _trait: Trait;
     }
 }

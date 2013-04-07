@@ -5,9 +5,6 @@
 /// <reference path="..\Common\Exceptions\JsonRetrievalException.ts" />
 /// <reference path="..\Model\ValueLevel.ts" />
 /// <reference path="..\Model\Category.ts" />
-/// <reference path="..\Model\Collections\CategoryCollection.ts" />
-
-import Collections = Wrc.Model.Collections;
 
 module Wrc.Model
 {
@@ -17,6 +14,21 @@ module Wrc.Model
         private _categories: Category[];
         private _traits: Trait[];
         private _levels: ILevel[];
+
+        get Categories() : Category[]
+        {
+            return this._categories;
+        }
+
+        get Traits(): Trait[]
+        {
+            return this._traits;
+        }
+
+        get Levels(): ILevel[]
+        {
+            return this._levels;
+        }
 
         constructor(connectionString: string)
         {
