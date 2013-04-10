@@ -8,9 +8,6 @@ var Wrc;
                     this.Categories = ko.observableArray(ko.utils.arrayMap(this._repository.Categories, function (item) {
                         return new Wrc.Model.Category(item.Name);
                     }));
-                    this.Traits = ko.observableArray(ko.utils.arrayMap(this._repository.Traits, function (item) {
-                        return new Wrc.Model.Trait();
-                    }));
                 }
                 return CalculatorViewModel;
             })();
