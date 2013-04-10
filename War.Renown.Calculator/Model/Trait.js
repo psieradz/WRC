@@ -3,13 +3,13 @@ var Wrc;
     /// <reference path="../Model/Category.ts" />
     (function (Model) {
         var Trait = (function () {
-            function Trait(category, name) {
-                this._category = category;
+            function Trait(categoryName, name) {
+                this._categoryName = categoryName;
                 this._name = name;
             }
             Object.defineProperty(Trait.prototype, "Category", {
                 get: function () {
-                    return this._category;
+                    return this._categoryName;
                 },
                 enumerable: true,
                 configurable: true

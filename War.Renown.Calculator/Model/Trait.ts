@@ -4,12 +4,12 @@ module Wrc.Model
 {
     export class Trait
     {
-        private _category: Category;
+        private _categoryName: string;
         private _name: string;
 
-        get Category(): Category
+        get Category(): string
         {
-            return this._category;
+            return this._categoryName;
         }
 
         get Name(): string
@@ -17,9 +17,9 @@ module Wrc.Model
             return this._name;
         }
 
-        constructor(category: Category, name: string)
+        constructor(categoryName: string, name: string)
         {
-            this._category= category;
+            this._categoryName= categoryName;
             this._name = name;
         }
     }

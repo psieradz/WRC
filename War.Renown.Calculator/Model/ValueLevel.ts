@@ -7,7 +7,7 @@ module Wrc.Model
         private _description: string;
         private _cost: number;
         private _selected: bool;
-        private _trait: Trait;
+        private _traitName: string;
         private _value: number;
 
         get Description(): String
@@ -25,23 +25,21 @@ module Wrc.Model
             return this._selected;
         }
 
-        get Trait(): Trait
+        get Trait(): string
         {
-            return this._trait;
+            return this._traitName;
         }
 
         get Value(): number
         {
             return this._value;
         }
-
-
-
-        constructor(description: string, cost: number, trait: Trait, value: number)
+        
+        constructor(description: string, cost: number, traitName: string, value: number)
         {
             this._description = description;
             this._cost = cost;
-            this._trait = trait;
+            this._traitName = traitName;
             this._value = value;
             this._selected = false;
         }

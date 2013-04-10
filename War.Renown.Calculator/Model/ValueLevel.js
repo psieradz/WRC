@@ -3,10 +3,10 @@ var Wrc;
     /// <reference path="ILevel.ts" />
     (function (Model) {
         var ValueLevel = (function () {
-            function ValueLevel(description, cost, trait, value) {
+            function ValueLevel(description, cost, traitName, value) {
                 this._description = description;
                 this._cost = cost;
-                this._trait = trait;
+                this._traitName = traitName;
                 this._value = value;
                 this._selected = false;
             }
@@ -33,7 +33,7 @@ var Wrc;
             });
             Object.defineProperty(ValueLevel.prototype, "Trait", {
                 get: function () {
-                    return this._trait;
+                    return this._traitName;
                 },
                 enumerable: true,
                 configurable: true

@@ -61,19 +61,17 @@ module Wrc.Model
                             .From(data)
                             .ForEach(category =>
                             {
-                                var categoryToAdd = new Category(category.Name);
-                                self._categories.push(categoryToAdd);
+                                self._categories.push(category);
                                 Enumerable
                                     .From(category.Traits)
                                     .ForEach(trait =>
                                     {
-                                        var traitToAdd = new Trait(categoryToAdd,trait.Name)
-                                        self._traits.push(traitToAdd);
+                                        self._traits.push(trait);
                                         Enumerable
                                         .From(trait.Levels)
                                         .ForEach(level =>
                                         {                                            
-                                            self._levels.push(new ValueLevel(level.Description, level.Cost, traitToAdd,level.Value));
+                                            self._levels.push(new ValueLevel(level.Description, level.Cost, trait.Name, level.Value));
                                         })
                                     })
                             })

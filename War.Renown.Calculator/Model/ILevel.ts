@@ -6,6 +6,6 @@ module Wrc.Model
         _description: string;
         _cost: number;
         _selected: bool;
-        _trait: Trait;
+        _traitName: string;
     }
 }

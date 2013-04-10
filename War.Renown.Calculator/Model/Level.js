@@ -28,7 +28,7 @@ var Wrc;
             });
             Object.defineProperty(Level.prototype, "Trait", {
                 get: function () {
-                    return this._trait;
+                    return this._traitName;
                 },
                 enumerable: true,
                 configurable: true
