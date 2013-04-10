@@ -1,7 +1,7 @@
 /// <reference path="../../Api/knockout.d.ts" />
 /// <reference path="../../Model/Repository.ts" />
 /// <reference path="../../Model/Category.ts" />
-declare var ko;
+/// <reference path="../../Model/Trait.ts" />
 
 module Wrc.Model.ViewModel
 {
@@ -16,12 +16,12 @@ module Wrc.Model.ViewModel
         constructor(repository: Repository)
         {
             this._repository = repository;
-            var array = ko.utils.arrayMap(
+
+            this.Categories = ko.observableArray(
+                ko.utils.arrayMap(
                     this._repository.Categories,
-                    (item) => new Category(item.Name));
-            this.Categories = ko.observableArray(array);
-            //this.Categories.push(this._repository.Categories());
-                //;
+                    (item) => new Wrc.Model.Category(item.Name)));
+
         }
                            
     }

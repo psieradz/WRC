@@ -5,10 +5,12 @@ var Wrc;
             var CalculatorViewModel = (function () {
                 function CalculatorViewModel(repository) {
                     this._repository = repository;
-                    var array = ko.utils.arrayMap(this._repository.Categories, function (item) {
-                        return new Category(item.Name);
-                    });
-                    this.Categories = ko.observableArray(array);
+                    this.Categories = ko.observableArray(ko.utils.arrayMap(this._repository.Categories, function (item) {
+                        return new Wrc.Model.Category(item.Name);
+                    }));
+                    this.Traits = ko.observableArray(ko.utils.arrayMap(this._repository.Traits, function (item) {
+                        return new Wrc.Model.Trait();
+                    }));
                 }
                 return CalculatorViewModel;
             })();

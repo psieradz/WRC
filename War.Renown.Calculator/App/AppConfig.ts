@@ -5,21 +5,22 @@
 require.config({
     baseUrl: '../',
     paths: {
-        'knockout': 'Lib/knockout-2.2.1.debug'
-    },
-    shim: {
-        knockout: {
-            exports: "ko"
-        }
-    }
+        'Knockout': 'Lib/knockout-2.2.1.debug',
+        'AppMain': 'App/AppMain'
+    }//,
+    //shim: {
+    //    knockout: {
+    //        exports: "ko"
+    //    }
+    //}
 });
 
 require
 (
     //#region Imports
     [
-        '../App/AppMain'
-      , 'knockout'
+        'AppMain'
+      , 'Knockout'
       , '../Lib/jquery'
       , '../Lib/linq'
       , '../Lib/linq.jquery'
