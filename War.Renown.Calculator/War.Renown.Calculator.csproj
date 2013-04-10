@@ -18,12 +18,23 @@
   <ItemGroup>
     <Content Include="Api\jquery.d.ts" />
     <Content Include="Api\jquerymobile.d.ts" />
+    <Content Include="Api\knockout.d.ts" />
     <Content Include="Api\linq.d.ts" />
-    <Content Include="App\app.min.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="Common\Exceptions\JsonRetrievalException.ts" />
     <TypeScriptCompile Include="Common\Exceptions\Exception.ts" />
+    <TypeScriptCompile Include="App\AppMain.ts" />
+    <Content Include="App\AppConfig.js">
+      <DependentUpon>AppConfig.ts</DependentUpon>
+    </Content>
+    <Content Include="App\AppConfig.min.js">
+      <DependentUpon>AppConfig.ts</DependentUpon>
+    </Content>
+    <Content Include="App\AppMain.js">
+      <DependentUpon>AppMain.ts</DependentUpon>
+    </Content>
+    <Content Include="App\AppMain.min.js">
+      <DependentUpon>AppMain.ts</DependentUpon>
+    </Content>
     <Content Include="Common\Exceptions\Exception.js">
       <DependentUpon>Exception.ts</DependentUpon>
     </Content>
@@ -37,27 +48,27 @@
       <DependentUpon>JsonRetrievalException.ts</DependentUpon>
     </Content>
     <Content Include="Lib\angular.min.js" />
-    <Content Include="Lib\jquery-1.9.1.js" />
+    <Content Include="Lib\jquery.js" />
+    <Content Include="Lib\knockout-2.2.1.debug.js" />
     <Content Include="Lib\linq.jquery.js" />
     <Content Include="Lib\jquery.mobile-1.3.0.min.js" />
     <Content Include="Api\require.d.ts" />
     <Content Include="App\app.css" />
     <Content Include="default.htm" />
-    <Content Include="App\app.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="App\app.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App\app.js.map">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
+    <TypeScriptCompile Include="App\AppConfig.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\linq.js" />
     <TypeScriptCompile Include="Model\Category.ts" />
+    <Content Include="Lib\require.js" />
+    <Content Include="Model\ViewModel\CalculatorViewModel.js">
+      <DependentUpon>CalculatorViewModel.ts</DependentUpon>
+    </Content>
+    <Content Include="Model\ViewModel\CalculatorViewModel.min.js">
+      <DependentUpon>CalculatorViewModel.ts</DependentUpon>
+    </Content>
     <Content Include="Model\Category.min.js">
       <DependentUpon>Category.ts</DependentUpon>
     </Content>
@@ -105,6 +116,7 @@
     <Content Include="Model\ValueLevel.min.js">
       <DependentUpon>ValueLevel.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Model\ViewModel\CalculatorViewModel.ts" />
     <Content Include="web.config" />
     <Content Include="DataSources\Local.json" />
     <Content Include="Model\Model.js.map">
@@ -134,6 +146,15 @@
     <Content Include="Model\Category.js.map">
       <DependentUpon>Category.ts</DependentUpon>
     </Content>
+    <Content Include="Model\ViewModel\CalculatorViewModel.js.map">
+      <DependentUpon>CalculatorViewModel.ts</DependentUpon>
+    </Content>
+    <Content Include="App\AppMain.js.map">
+      <DependentUpon>AppMain.ts</DependentUpon>
+    </Content>
+    <Content Include="App\AppConfig.js.map">
+      <DependentUpon>AppConfig.ts</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -143,6 +164,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

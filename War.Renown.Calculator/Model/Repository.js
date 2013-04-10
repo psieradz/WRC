@@ -42,11 +42,11 @@ var Wrc;
             Repository.prototype.Fill = function () {
                 var self = this;
                 try  {
-                    $.ajaxSetup({
+                    jQuery.ajaxSetup({
                         async: false,
                         cache: false
                     });
-                    $.getJSON(self._connectionString).fail(function (response) {
+                    jQuery.getJSON(self._connectionString).fail(function (response) {
                         throw new Wrc.Common.Exceptions.JsonRetrievalException(response.statusText);
                     }).done(function (data) {
                         Enumerable.From(data).ForEach(function (category) {
@@ -62,7 +62,7 @@ var Wrc;
                         });
                     });
                 }finally {
-                    $.ajaxSetup({
+                    jQuery.ajaxSetup({
                         async: true,
                         cache: true
                     });

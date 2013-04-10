@@ -49,8 +49,8 @@ module Wrc.Model
 
             try
                 {
-                    $.ajaxSetup({ async: false, cache: false })
-                    $.getJSON(self._connectionString)
+                    jQuery.ajaxSetup({ async: false, cache: false })
+                    jQuery.getJSON(self._connectionString)
                     .fail((response) =>
                     {
                         throw new Common.Exceptions.JsonRetrievalException(response.statusText);
@@ -82,7 +82,7 @@ module Wrc.Model
                 }
                 finally
                 {
-                    $.ajaxSetup({ async: true, cache: true })
+                    jQuery.ajaxSetup({ async: true, cache: true })
                 }
         }
      }
