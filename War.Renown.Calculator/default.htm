@@ -8,6 +8,7 @@
     <script data-main="App/AppConfig.js" type="text/javascript" src="Lib/require.js"></script>
 </head>
     <body>
+        <header data-bind="text: LevelsSummary()"></header>
         <div id="container" data-bind="foreach: Categories" >
             <div class="category">
                 <div class="categoryLabel" data-bind="text: Name"></div>

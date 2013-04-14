@@ -15,7 +15,15 @@ var Wrc;
                     this.Levels = ko.observableArray(ko.utils.arrayMap(this._repository.Levels, function (item) {
                         return new Wrc.Model.ValueLevel(item.Description, item.Cost, item.Trait, item.Value, false);
                     }));
+                    self.Spent = ko.observable(0);
+                    self.Limit = ko.observable(100);
                 }
+                CalculatorViewModel.prototype.LevelsSummary = function () {
+                    var _this = this;
+                    return ko.computed(function () {
+                        return "Points spent: " + _this.Spent().toString() + "/" + _this.Limit().toString();
+                    });
+                };
                 CalculatorViewModel.prototype.GetTraitsInCategory = function (categoryName) {
                     var self = this;
                     self._traitsInCategory = ko.computed({
@@ -48,7 +56,11 @@ var Wrc;
                         });
                         if(updatable.Count() > 0) {
                             var toUpdate = check ? updatable.First() : updatable.Last();
-                            self.Levels.replace(toUpdate, new Wrc.Model.ValueLevel(toUpdate.Description, toUpdate.Cost, toUpdate.Trait, toUpdate.Value, check));
+                            var sign = check ? 1 : -1;
+                            if(sign * (self.Spent() + parseInt(toUpdate.Cost)) <= self.Limit()) {
+                                self.Spent(self.Spent() + (sign * parseInt(toUpdate.Cost)));
+                                self.Levels.replace(toUpdate, new Wrc.Model.ValueLevel(toUpdate.Description, toUpdate.Cost, toUpdate.Trait, toUpdate.Value, check));
+                            }
                         }
                     };
                 };
