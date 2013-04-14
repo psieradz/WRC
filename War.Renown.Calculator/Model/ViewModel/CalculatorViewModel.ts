@@ -87,7 +87,7 @@ module Wrc.Model.ViewModel
                 var updatable =
                     Enumerable
                         .From(self.Levels())
-                        .Where(level => level.Selected == !check);
+                        .Where(level => level.Trait == traitName && level.Selected == !check );
                         
                 if (updatable.Count() > 0)
                 {

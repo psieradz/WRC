@@ -44,7 +44,7 @@ var Wrc;
                     var self = this;
                     return function () {
                         var updatable = Enumerable.From(self.Levels()).Where(function (level) {
-                            return level.Selected == !check;
+                            return level.Trait == traitName && level.Selected == !check;
                         });
                         if(updatable.Count() > 0) {
                             var toUpdate = check ? updatable.First() : updatable.Last();
