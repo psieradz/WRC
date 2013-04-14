@@ -17,8 +17,8 @@
                         <div class="trait" data-bind="foreach: $root.GetLevelsInTrait($data.Name)">
                             <div class="level" data-bind="text: Cost, style: { 'background-color': Selected == false ? 'yellow' : 'red' }"></div>
                         </div>
-                        <button data-bind="click: $root.SelectLevel($data.Name)">+</button>
-                        <button>-</button>
+                        <button data-bind="click: $root.ChangeLevelState($data.Name, true)">+</button>
+                        <button data-bind="click: $root.ChangeLevelState($data.Name, false)">-</button>
                     </div>
                 </div>
             </div>

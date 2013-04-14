@@ -13,7 +13,7 @@ var Wrc;
                         return new Wrc.Model.Trait(item.Category, item.Name);
                     }));
                     this.Levels = ko.observableArray(ko.utils.arrayMap(this._repository.Levels, function (item) {
-                        return new Wrc.Model.ValueLevel(item.Description, item.Cost, item.Trait, item.Value);
+                        return new Wrc.Model.ValueLevel(item.Description, item.Cost, item.Trait, item.Value, false);
                     }));
                 }
                 CalculatorViewModel.prototype.GetTraitsInCategory = function (categoryName) {
@@ -40,16 +40,16 @@ var Wrc;
                     });
                     return self._LevelsInTrait;
                 };
-                CalculatorViewModel.prototype.SelectLevel = function (traitName) {
+                CalculatorViewModel.prototype.ChangeLevelState = function (traitName, check) {
                     var self = this;
                     return function () {
-                        ko.utils.arrayForEach(self.Levels(), function (item) {
-                            return item.Selected = ko.observable(item.Selected);
+                        var updatable = Enumerable.From(self.Levels()).Where(function (level) {
+                            return level.Selected == !check;
                         });
-                        var r = ko.utils.arrayFirst(self.Levels(), function (level) {
-                            return !level.Selected;
-                        });
-                        r.Selected = true;
+                        if(updatable.Count() > 0) {
+                            var toUpdate = check ? updatable.First() : updatable.Last();
+                            self.Levels.replace(toUpdate, new Wrc.Model.ValueLevel(toUpdate.Description, toUpdate.Cost, toUpdate.Trait, toUpdate.Value, check));
+                        }
                     };
                 };
                 return CalculatorViewModel;

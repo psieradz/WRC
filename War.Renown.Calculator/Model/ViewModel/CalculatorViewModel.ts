@@ -24,17 +24,17 @@ module Wrc.Model.ViewModel
             this.Categories = ko.observableArray(
                 ko.utils.arrayMap(
                     this._repository.Categories,
-                    (item) => new Wrc.Model.Category(item.Name)));
+                    item => new Wrc.Model.Category(item.Name)));
 
             this.Traits = ko.observableArray(
                  ko.utils.arrayMap(
                     this._repository.Traits,
-                    (item) => new Wrc.Model.Trait(item.Category, item.Name)));
+                    item => new Wrc.Model.Trait(item.Category, item.Name)));
 
             this.Levels = ko.observableArray(
                  ko.utils.arrayMap(
                     this._repository.Levels,
-                    (item) => new Wrc.Model.ValueLevel(item.Description, item.Cost, item.Trait, item.Value)));
+                    item => new Wrc.Model.ValueLevel(item.Description, item.Cost, item.Trait, item.Value, false)));
          }
         
         GetTraitsInCategory(categoryName: string): KnockoutComputed
@@ -60,7 +60,7 @@ module Wrc.Model.ViewModel
         GetLevelsInTrait(traitName: string): KnockoutComputed
         {
             var self = this;
-
+            
             self._LevelsInTrait =
                 ko.computed(
                 {
@@ -69,7 +69,7 @@ module Wrc.Model.ViewModel
                        {
                            return Enumerable
                              .From(self.Levels())
-                             .Where((level) => level.Trait == traitName)
+                             .Where((level) =>  level.Trait == traitName )
                              .ToArray()
                              .sort((a, b) => b - a);
                        }
@@ -78,19 +78,25 @@ module Wrc.Model.ViewModel
             return self._LevelsInTrait;
         }
 
-        SelectLevel(traitName: string)
+        ChangeLevelState(traitName: string, check: bool)
         {
             var self = this;
 
             return () =>
             {
-                ko.utils.arrayForEach(self.Levels(),
-                    item => item.Selected = ko.observable(item.Selected));
-                var r =
-                    ko.utils.arrayFirst(
-                        self.Levels(),
-                        level => !level.Selected);
-                r.Selected = true;
+                var updatable =
+                    Enumerable
+                        .From(self.Levels())
+                        .Where(level => level.Selected == !check);
+                        
+                if (updatable.Count() > 0)
+                {
+                    var toUpdate = check ? updatable.First() : updatable.Last();
+
+                    self.Levels.replace(
+                        toUpdate,
+                        new Wrc.Model.ValueLevel(toUpdate.Description, toUpdate.Cost, toUpdate.Trait, toUpdate.Value, check));
+                }
             }
         }
                            

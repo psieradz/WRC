@@ -72,7 +72,7 @@ module Wrc.Model
                                         .From(trait.Levels)
                                         .ForEach(level =>
                                         {                                            
-                                            self._levels.push(new ValueLevel(level.Description, level.Cost, trait.Name, level.Value));
+                                            self._levels.push(new ValueLevel(level.Description, level.Cost, trait.Name, level.Value,level.Selected));
                                         })
                                     })
                             })

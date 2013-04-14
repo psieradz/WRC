@@ -1,4 +1,6 @@
 /// <reference path="Trait.ts" />
+/// <reference path="../Api/knockout.d.ts" />
+
 module Wrc.Model
 {
     export interface ILevel

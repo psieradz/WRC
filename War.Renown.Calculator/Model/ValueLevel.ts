@@ -1,4 +1,5 @@
 /// <reference path="ILevel.ts" />
+/// <reference path="../Api/knockout.d.ts" />
 
 module Wrc.Model
 {
@@ -25,7 +26,7 @@ module Wrc.Model
             return this._selected;
         }
 
-        set Selected(value:bool)
+        set Selected(value:any)
         {
             this._selected = value;
         }
@@ -40,13 +41,13 @@ module Wrc.Model
             return this._value;
         }
         
-        constructor(description: string, cost: number, traitName: string, value: number)
+        constructor(description: string, cost: number, traitName: string, value: number, selected : any)
         {
             this._description = description;
             this._cost = cost;
             this._traitName = traitName;
             this._value = value;
-            this._selected = false;
+            this._selected = selected;
         }
     }
 }

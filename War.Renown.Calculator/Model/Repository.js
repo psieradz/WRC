@@ -55,7 +55,7 @@ var Wrc;
                                 trait.Category = category.Name;
                                 self._traits.push(trait);
                                 Enumerable.From(trait.Levels).ForEach(function (level) {
-                                    self._levels.push(new Model.ValueLevel(level.Description, level.Cost, trait.Name, level.Value));
+                                    self._levels.push(new Model.ValueLevel(level.Description, level.Cost, trait.Name, level.Value, level.Selected));
                                 });
                             });
                         });

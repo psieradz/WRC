@@ -1,14 +1,15 @@
 var Wrc;
 (function (Wrc) {
     /// <reference path="ILevel.ts" />
+    /// <reference path="../Api/knockout.d.ts" />
     (function (Model) {
         var ValueLevel = (function () {
-            function ValueLevel(description, cost, traitName, value) {
+            function ValueLevel(description, cost, traitName, value, selected) {
                 this._description = description;
                 this._cost = cost;
                 this._traitName = traitName;
                 this._value = value;
-                this._selected = false;
+                this._selected = selected;
             }
             Object.defineProperty(ValueLevel.prototype, "Description", {
                 get: function () {
