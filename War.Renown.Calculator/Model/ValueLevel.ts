@@ -25,6 +25,11 @@ module Wrc.Model
             return this._selected;
         }
 
+        set Selected(value:bool)
+        {
+            this._selected = value;
+        }
+
         get Trait(): string
         {
             return this._traitName;

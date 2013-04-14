@@ -66,6 +66,7 @@ module Wrc.Model
                                     .From(category.Traits)
                                     .ForEach(trait =>
                                     {
+                                        trait.Category = category.Name
                                         self._traits.push(trait);
                                         Enumerable
                                         .From(trait.Levels)

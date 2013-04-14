@@ -3,9 +3,9 @@ define(["require", "exports"], function(require, exports) {
         function AppMain() { }
         AppMain.prototype.Run = function () {
             var repository = new Wrc.Model.Repository('../DataSources/Local.json');
-            var el = document.getElementById('content');
             repository.Fill();
             var viewModel = new Wrc.Model.ViewModel.CalculatorViewModel(repository);
+            ko.applyBindings(viewModel);
         };
         return AppMain;
     })();

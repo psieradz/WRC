@@ -7,12 +7,7 @@ require.config({
     paths: {
         'Knockout': 'Lib/knockout-2.2.1.debug',
         'AppMain': 'App/AppMain'
-    }//,
-    //shim: {
-    //    knockout: {
-    //        exports: "ko"
-    //    }
-    //}
+    }
 });
 
 require

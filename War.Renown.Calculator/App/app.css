@@ -3,6 +3,43 @@
     font-family: 'Segoe UI', sans-serif
 }
 
-span {
-    font-style: italic
+div.category 
+{
+    clear: both;
+    overflow: auto;
 }
+
+div.category div.categoryLabel 
+{
+    float: left;
+    width: 10%;
+}
+
+div.category div.categoryTraitsHeader
+{
+    float: left;
+    text-align: left;
+}
+
+div.category div.categoryTraitsHeader div.traitContainer
+{
+    float: left;
+    text-align: left;
+}
+
+div.category div.categoryTraitsHeader div.traitHeader
+{
+    width: 100%;
+    float: left;
+    display: block;
+}
+
+div.category div.categoryTraitsHeader div.trait
+{
+    width: 100%;
+    float: left;
+}
+
+div.category div.categoryTraitsHeader div.level
+{
+}    

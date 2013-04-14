@@ -30,12 +30,88 @@
 						"Cost": "14" 
 					}
 				]
+			},
+		    {
+				"Type" : "Trait",
+				"Name":"Weapon Skill",
+				"Levels":
+				[
+					{ 
+						"Type":"Level",
+						"Cost": "1" 
+					},                        
+					{ 					
+						"Type":"Level",
+						"Cost": "3" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "6" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "10" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "14" 
+					}
+				]
+			},
+		    {
+				"Type" : "Trait",
+				"Name":"Willpower",
+				"Levels":
+				[
+					{ 
+						"Type":"Level",
+						"Cost": "1" 
+					},                        
+					{ 					
+						"Type":"Level",
+						"Cost": "3" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "6" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "10" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "14" 
+					}
+				]
 			}
 		]
 	},
 	{
 		"Type" : "Category",  
-		"Name":"Offensive Crits" 
+		"Name":"Offensive Crits",
+		"Traits":
+		[
+		    {
+				"Type" : "Trait",
+				"Name":"Melee Crit",
+				"Levels":
+				[
+					{ 
+						"Type":"Level",
+						"Cost": "5" 
+					},                        
+					{ 					
+						"Type":"Level",
+						"Cost": "10" 
+					},
+					{ 
+						"Type":"Level",
+						"Cost": "20" 
+					}
+				]
+			}
+		]
 	},
 	{
 		"Type" : "Category",  

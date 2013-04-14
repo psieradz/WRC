@@ -4,12 +4,24 @@
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
-    <link rel="stylesheet" href="app.css" type="text/css" />
+    <link rel="stylesheet" href="App/app.css" type="text/css" />
     <script data-main="App/AppConfig.js" type="text/javascript" src="Lib/require.js"></script>
 </head>
-<body>
-    <h1>TypeScript HTML App</h1>
-
-    <div id="content"></div>
-</body>
+    <body>
+        <div id="container" data-bind="foreach: Categories" >
+            <div class="category">
+                <div class="categoryLabel" data-bind="text: Name"></div>
+                <div class="categoryTraitsHeader" data-bind="foreach: $parent.GetTraitsInCategory($data.Name)">
+                    <div class="traitContainer">
+                        <div class="traitHeader" data-bind="text: Name"></div>
+                        <div class="trait" data-bind="foreach: $root.GetLevelsInTrait($data.Name)">
+                            <div class="level" data-bind="text: Cost, style: { 'background-color': Selected == false ? 'yellow' : 'red' }"></div>
+                        </div>
+                        <button data-bind="click: $root.SelectLevel($data.Name)">+</button>
+                        <button>-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

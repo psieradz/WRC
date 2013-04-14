@@ -28,6 +28,9 @@ var Wrc;
                 get: function () {
                     return this._selected;
                 },
+                set: function (value) {
+                    this._selected = value;
+                },
                 enumerable: true,
                 configurable: true
             });

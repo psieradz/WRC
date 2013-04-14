@@ -155,6 +155,9 @@
     <Content Include="App\AppConfig.js.map">
       <DependentUpon>AppConfig.ts</DependentUpon>
     </Content>
+    <Content Include="Common\Exceptions\JsonRetrievalException.min.js.map">
+      <DependentUpon>JsonRetrievalException.js</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

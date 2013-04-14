@@ -52,6 +52,7 @@ var Wrc;
                         Enumerable.From(data).ForEach(function (category) {
                             self._categories.push(category);
                             Enumerable.From(category.Traits).ForEach(function (trait) {
+                                trait.Category = category.Name;
                                 self._traits.push(trait);
                                 Enumerable.From(trait.Levels).ForEach(function (level) {
                                     self._levels.push(new Model.ValueLevel(level.Description, level.Cost, trait.Name, level.Value));
