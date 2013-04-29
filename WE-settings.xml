@@ -105,7 +105,7 @@
     <TypeScriptMinify>true</TypeScriptMinify>
     <TypeScriptProduceSourceMap>true</TypeScriptProduceSourceMap>
     <TypeScriptResaveWithUtf8BOM>false</TypeScriptResaveWithUtf8BOM>
-    <TypeScriptShowPreviewWindow>true</TypeScriptShowPreviewWindow>
+    <TypeScriptShowPreviewWindow>false</TypeScriptShowPreviewWindow>
     <TypeScriptUseAmdModule>true</TypeScriptUseAmdModule>
     <ValidateVendorSpecifics>false</ValidateVendorSpecifics>
   </settings>
